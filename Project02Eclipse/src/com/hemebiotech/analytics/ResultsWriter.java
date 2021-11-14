@@ -15,15 +15,24 @@ import java.util.TreeMap;
  */
 public class ResultsWriter {
 
+	private String fichierFinal;
+	private TreeMap<String, Integer> listeComptee;
+
+	public ResultsWriter(TreeMap<String, Integer> listeComptee, String fichierFinal) {
+		// TODO Auto-generated constructor stub
+		this.listeComptee = listeComptee;
+		this.fichierFinal = fichierFinal;
+	}
+
 	/**
 	 * @param args
 	 */
-	public static void remplisseurDeFichierDeResultats (TreeMap<String, Integer> mapDesSymptomes) {
+	public void remplisseurDeFichierDeResultats() {
 		// TODO Auto-generated method stub
-		try (FileWriter g = new FileWriter("result.out", true); // on initialise la possibilité d'écrire dans result.out
+		try (FileWriter g = new FileWriter(fichierFinal, true); // on initialise la possibilité d'écrire dans result.out
 
 				BufferedWriter b = new BufferedWriter(g);) {
-			for (Map.Entry<String, Integer> val : mapDesSymptomes.entrySet())// boucle d'extraction des paires
+			for (Map.Entry<String, Integer> val : listeComptee.entrySet())// boucle d'extraction des paires
 			{
 				// ci dessous le test de bon déroulement de la boucle
 				// System.out.println(1);

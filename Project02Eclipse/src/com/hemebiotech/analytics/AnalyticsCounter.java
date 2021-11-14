@@ -27,11 +27,16 @@ public class AnalyticsCounter {
 		ReadSymptomDataFromFile cheminSymptomes = new ReadSymptomDataFromFile(fichierOriginal);
 //on récupère la liste des symptomes 	
 		List<String> listeDesSymptomes = cheminSymptomes.GetSymptoms();
+
 //on crée le treemap avec ListeDesSymptomes en argument
-		TreeMap<String, Integer> listeComptee = SymptomsCounter.ListToMap(listeDesSymptomes);
+		SymptomsCounter listeComptee = new SymptomsCounter(listeDesSymptomes);
+		TreeMap<String, Integer> listeMappee = listeComptee.ListToMap();
+
 //on initialise le fichier de résultats
 		ResultsFileInitializer.createurDeFichierDeResultats(fichierFinal);
 
+//on remplit le fichier de résultats avec le contenu du TreeMap		
+		ResultsWriter resultatsFinaux = new ResultsWriter(listeMappee, fichierFinal);
+		resultatsFinaux.remplisseurDeFichierDeResultats();
 	}
-
 }

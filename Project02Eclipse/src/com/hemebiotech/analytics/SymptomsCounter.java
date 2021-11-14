@@ -12,20 +12,26 @@ import java.util.TreeMap;
  *
  */
 public class SymptomsCounter {
+	private List<String> symptomsList;
 
-	public static TreeMap<String, Integer> ListToMap(List<String> ListeDesSymptomes) throws IOException {
+	public SymptomsCounter(List<String> symptomsList) {
+		this.symptomsList = symptomsList;
+	}
+
+	public TreeMap<String, Integer> ListToMap() throws IOException {
 
 		TreeMap<String, Integer> MapSympt = new TreeMap<String, Integer>();
 		//
 
-		for (String UnSymptome : ListeDesSymptomes) {
+		for (String UnSymptome : symptomsList) {
 			// boucle "for" basée sur une lecture ligne par ligne de la List entrée en
 			// argument de la méthode.
 			Integer j = MapSympt.get(UnSymptome); // pour la clé UnSymptome, on chope la valeur associée dans le
 													// treemap, qu'on colle dans j
 
 			MapSympt.put(UnSymptome, (j == null) ? 1 : j + 1); // soit on rentre un nouveau binôme dans la map,
-			System.out.println(UnSymptome); // (UnSymptome,1), si pas de clé UnSymptome (garanti par
+			// System.out.println(UnSymptome); // (UnSymptome,1), si pas de clé UnSymptome
+			// (garanti par
 			// j inexistant), soit on met à jour le binome en
 			// incrémentant la valeur associée à la clé
 		}
