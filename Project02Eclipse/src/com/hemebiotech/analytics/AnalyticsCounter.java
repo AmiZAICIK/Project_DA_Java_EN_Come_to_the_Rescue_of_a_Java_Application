@@ -21,16 +21,16 @@ public class AnalyticsCounter {
 // Class FileCreator : réinitialise le fichier de résultats
 // Class ResultsWriter : remplit le ficher de résultat avec les données du treemap
 
-	public static void main(String args[]) throws Exception {
+	public static void main(String[] args) throws Exception {
 
 //on crée une instance de ReadSymptomsDataFromFile		
 		ReadSymptomDataFromFile cheminSymptomes = new ReadSymptomDataFromFile(fichierOriginal);
 //on récupère la liste des symptomes 	
-		List<String> listeDesSymptomes = cheminSymptomes.GetSymptoms();
+		List<String> listeDesSymptomes = cheminSymptomes.getSymptoms();
 
 //on crée le treemap avec ListeDesSymptomes en argument
 		SymptomsCounter listeComptee = new SymptomsCounter(listeDesSymptomes);
-		TreeMap<String, Integer> listeMappee = listeComptee.ListToMap();
+		TreeMap<String, Integer> listeMappee = listeComptee.listToMap();
 
 //on initialise le fichier de résultats
 		ResultsFileInitializer.createurDeFichierDeResultats(fichierFinal);

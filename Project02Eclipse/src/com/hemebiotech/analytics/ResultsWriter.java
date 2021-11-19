@@ -29,24 +29,24 @@ public class ResultsWriter {
 	 */
 	public void remplisseurDeFichierDeResultats() {
 		// TODO Auto-generated method stub
-		try (FileWriter g = new FileWriter(fichierFinal, true); // on initialise la possibilité d'écrire dans result.out
+		try (FileWriter fileW = new FileWriter(fichierFinal, true); // on initialise la possibilité d'écrire dans
+																	// result.out
 
-				BufferedWriter b = new BufferedWriter(g);) {
+				BufferedWriter writer = new BufferedWriter(fileW);) {
 			for (Map.Entry<String, Integer> val : listeComptee.entrySet())// boucle d'extraction des paires
 			{
 				// ci dessous le test de bon déroulement de la boucle
 				// System.out.println(1);
-				b.write("The Symptom : " + val.getKey() + " " + "occurs" + " " + val.getValue()
-						+ ((val.getValue() == 1) ? " time" : " times"));
-				b.newLine();
-				// on sort un message propre en bon anglais, pas le machin minimaliste proposé
-				// dans le cours
+				writer.write("" + val.getKey() + " " + val.getValue());
+				writer.newLine();
+				// on sort le résultat dans le format demandé
 			}
+			writer.close();
 		} catch (
 
 		IOException i) {
 			i.printStackTrace();
 		}
-	}
 
+	}
 }

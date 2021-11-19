@@ -3,7 +3,6 @@
  */
 package com.hemebiotech.analytics;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -18,7 +17,7 @@ public class SymptomsCounter {
 		this.symptomsList = symptomsList;
 	}
 
-	public TreeMap<String, Integer> ListToMap() throws IOException {
+	public TreeMap<String, Integer> listToMap() {
 
 		TreeMap<String, Integer> MapSympt = new TreeMap<String, Integer>();
 		//
