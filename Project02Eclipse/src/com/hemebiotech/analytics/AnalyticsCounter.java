@@ -33,7 +33,8 @@ public class AnalyticsCounter {
 		TreeMap<String, Integer> listeMappee = listeComptee.listToMap();
 
 //on initialise le fichier de résultats
-		ResultsFileInitializer.createurDeFichierDeResultats(fichierFinal);
+		ResultsFileInitializer fichierPropre = new ResultsFileInitializer(fichierFinal);
+		fichierPropre.createurDeFichierDeResultats();
 
 //on remplit le fichier de résultats avec le contenu du TreeMap		
 		ResultsWriter resultatsFinaux = new ResultsWriter(listeMappee, fichierFinal);
